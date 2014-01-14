@@ -1,0 +1,583 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Open Science Framework | Comment UI Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="
+">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="css/bootstrap-custom.css">
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="css/common.css?cc2b5088">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+<!--     <link rel="stylesheet" href="/static/public/css/common.css?cc2b5088"> -->
+    <link rel="stylesheet" href="css/commentui.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+<!--     <script src="js/common.js"></script> -->
+    <script src="js/jquery.scrollTo.min.js"></script>
+    <script src="js/commentui.js"></script>
+
+<style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }</style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_invisible{display:none}
+.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_reset > div{overflow:hidden}
+.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}
+.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}
+.fb_dialog_close_icon:hover{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+.fb_dialog_top_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+.fb_dialog_top_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+.fb_dialog_bottom_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+.fb_dialog_bottom_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif)
+no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}
+.fb_dialog.fb_dialog_mobile.loading{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif)
+white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}
+.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}
+#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}
+#fb-root #fb_dialog_ipad_overlay.hidden{display:none}
+.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}
+.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}
+.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%
+}
+.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6),
+color-stop(0.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset,
+rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}
+.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}
+.fb_dialog_content .dialog_content{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:left}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}
+.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}
+.fb_iframe_widget iframe{position:absolute}
+.fb_iframe_widget_lift{z-index:1}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_fluid{display:inline}
+.fb_iframe_widget_fluid span{width:100%}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size:11px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fb_edge_widget_with_comment{position:relative;*z-index:1000}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget{position:absolute}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget{z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget .FB_Loader{left:0;top:1px;margin-top:6px;margin-left:0;background-position:50% 50%;background-color:#fff;height:150px;width:394px;border:1px #666 solid;border-bottom:2px solid #283e6c;z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.dark .FB_Loader{background-color:#000;border-bottom:2px solid #ccc}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.siderender
+.FB_Loader{margin-top:0}
+.fbpluginrecommendationsbarleft,
+.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}
+.fbpluginrecommendationsbarleft{left:10px}
+.fbpluginrecommendationsbarright{right:10px}</style><style id="clearly_highlighting_css" type="text/css">/* selection */ html.clearly_highlighting_enabled ::-moz-selection { background: rgba(246, 238, 150, 0.99); } html.clearly_highlighting_enabled ::selection { background: rgba(246, 238, 150, 0.99); } /* cursor */ html.clearly_highlighting_enabled {    /* cursor and hot-spot position -- requires a default cursor, after the URL one */    cursor: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--cursor.png") 14 16, text; } /* highlight tag */ em.clearly_highlight_element {    font-style: inherit !important; font-weight: inherit !important;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow.png");    background-repeat: repeat-x; background-position: top left; background-size: 100% 100%; } /* the delete-buttons are positioned relative to this */ em.clearly_highlight_element.clearly_highlight_first { position: relative; } /* delete buttons */ em.clearly_highlight_element a.clearly_highlight_delete_element {    display: none; cursor: pointer;    padding: 0; margin: 0; line-height: 0;    position: absolute; width: 34px; height: 34px; left: -17px; top: -17px;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite.png"); background-repeat: no-repeat; background-position: 0px 0px; } em.clearly_highlight_element a.clearly_highlight_delete_element:hover { background-position: -34px 0px; } /* retina */ @media (min--moz-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {    em.clearly_highlight_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow@2x.png"); }    em.clearly_highlight_element a.clearly_highlight_delete_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite@2x.png"); background-size: 68px 34px; } } </style>
+
+
+
+
+</head>
+<body style="" class="">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand hidden-xs" href="/">Open Science Framework<span class="brand-version"> BETA</span></a>
+      </div><!-- end navbar-header -->
+
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+          <li class="visible-xs"><a href="/">Home</a></li>
+          <li><a rel="tooltip" title="" href="/dashboard/" data-original-title="My Dashboard">Dashboard</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Explore <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/explore">Collaborator Network</a></li>
+              <li><a href="/explore/activity">Public Activity</a></li>
+            </ul><!-- end dropdown-menu -->
+          </li><!-- end dropdown -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/4znZP/wiki/home">About</a></li>
+              <li><a href="/faq/">FAQ</a></li>
+              <li><a href="/getting-started">Getting Started</a></li>
+            </ul><!-- end dropdown-menu -->
+          </li><!-- end dropdown -->
+        </ul><!-- end nav navbar-nav -->
+        <!-- Search bar -->
+        <form id="searchBar" class="navbar-form navbar-left" action="/search/" method="get" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control search-query" placeholder="Search" name="q">
+          </div>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/profile/">cu5bn@virginia.edu</a></li>
+          <li><a rel="tooltip" title="" href="/settings/" data-original-title="Settings"><span class="icon-cog"></span></a></li>
+          <li><a rel="tooltip" title="" href="/logout/" data-original-title="Log out"><span class="icon-signout"></span></a></li>
+		  
+        </ul><!-- end nav navbar-nav navbar-right -->
+
+
+
+      </div><!-- end navbar-collapse -->
+    </div><!-- end container-->
+</nav>
+<div class="watermarked">
+        <div class="container">
+            
+
+<div id="projectScope">
+    <header class="subhead" id="overview">
+        <div class="row">
+
+            <div class="col-md-8 cite-container">
+                <h1 id="nodeTitleEditable" class="node-title editable editable-click">Working Project</h1>
+            </div><!-- end col-md-->
+
+            <div class="col-md-4">
+                <div class="btn-toolbar node-control pull-right">
+                    <div class="btn-group">
+                        <button class="btn btn-default disabled">Private</button>
+                            <a class="btn btn-default" id="publicButton" data-target="/api/v1/project/fnmby/permissions/public/">Make public</a>
+                    </div><!-- end btn-group -->
+
+                    <div class="btn-group">
+                            <a rel="tooltip" title="" class="btn btn-default" href="#" data-bind="click: toggleWatch" data-original-title="Watch">
+                        <i class="icon-eye-open"></i>
+                        <span data-bind="text: watchButtonDisplay" id="watchCount">Watch 0</span>
+
+                        </a>
+
+                        <a rel="tooltip" title="" href="#" class="btn btn-default node-fork-btn" onclick="NodeActions.forkNode();" data-original-title="Number of times this node has been forked (copied)">
+                            <i class="icon-code-fork"></i>&nbsp;0
+                        </a>
+
+                    </div><!-- end btn-grp -->
+                </div><!-- end btn-toolbar -->
+            </div><!-- end col-md-->
+
+        </div><!-- end row -->
+
+
+        <p id="contributors">Contributors:
+                <span class="contributor">
+            <a href="/b6dn2/" class="user-quickedit" data-userid="b6dn2" data-fullname="Caner Uguz">Caner Uguz</a>
+    </span>
+
+    | <a href="#addContributors" data-toggle="modal">add</a>
+<br>Date Created:
+                <span data-bind="text: dateCreated.local,
+                                tooltip: {title: dateCreated.utc}" class="date node-date-created" data-original-title="" title="">12/14/2013 11:04 AM</span>
+            | Last Updated:
+            <span data-bind="text: dateModified.local,
+                            tooltip: {title: dateModified.utc}" class="date node-last-modified-date" data-original-title="" title="">1/13/2014 11:21 AM</span>
+                 <br>Description: <span id="nodeDescriptionEditable" class="node-description editable editable-click">Etiam mollis ante ligula, nec ultrices orci porttitor at. Fusce suscipit mattis orci eget bibendum. Morbi eu urna interdum, condimentum nulla a, placerat nulla. Phasellus vitae venenatis elit, eu rutrum magna. Curabitur tempus tincidunt dignissim. Donec vulputate magna eget aliquet elementum. Proin porta lacinia scelerisque. Mauris augue odio, tincidunt sed consectetur eget, varius vel nibh. Nullam congue arcu ac dui congue, nec vestibulum leo bibendum. Pellentesque tempor quam et tempus vulputate. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam lacinia neque lacinia ligula laoreet eleifend.</span>
+        </p>
+
+        <nav id="projectSubnav" class="navbar navbar-default ">
+            <ul class="nav navbar-nav">
+                <li><a href="/fnmby/">Dashboard</a></li>
+                <li class="active"><a href="/fnmby/wiki/">Wiki</a></li>
+                <li><a href="/fnmby/statistics/">Statistics</a></li>
+                <li><a href="/fnmby/files/">Files</a></li>
+                    <li><a href="/fnmby/registrations/">Registrations</a></li>
+                <li><a href="/fnmby/forks/">Forks</a></li>
+                <li><a href="/fnmby/settings/">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+</div><!-- end projectScope -->
+<div class="modal fade" id="addContributors">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 data-bind="text:pageTitle">Add contributors</h3>
+            </div>
+
+            <div class="modal-body">
+
+                <!-- Whom to add -->
+
+                <div data-bind="if:page()=='whom'">
+
+                    <!-- Find contributors -->
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input style="margin-bottom: 8px;" data-bind="value:query">
+                                <div><button class="btn btn-default" data-bind="click:search">Search</button></div>
+                            </div>
+                            <div class="col-md-6" data-bind="if:parentId"></div>
+                            <div class="col-md-6">
+                                <a data-bind="click:recentlyAdded, text:'Get list of recently added contributors'">Get list of recently added contributors</a>
+                            </div>
+                        </div>
+                    </form>
+
+                    <hr>
+
+                    <!-- Choose which to add -->
+                    <div class="row">
+
+                        <div class="col-md-6" col-md-="">
+                            <div>
+                                <span class="modal-subheader">Results</span>
+                                <a data-bind="click:addAll">Add all</a>
+                            </div>
+                            <div class="error" data-bind="if:errorMsg, text:errorMsg"></div>
+                            <table>
+                                <tbody data-bind="foreach:{data:results, afterRender:addTips}"></tbody>
+                            </table>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div>
+                                <span class="modal-subheader">Adding</span>
+                                <a data-bind="click:removeAll">Remove all</a>
+                            </div>
+                            <table>
+                                <tbody data-bind="foreach:{data:selection, afterRender:addTips}"></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div data-bind="if:page()=='which'"></div>
+
+            </div><!-- end modal-body -->
+
+            <div class="modal-footer">
+
+                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+
+                <span data-bind="if:selection().length &amp;&amp; page() == 'whom'"></span>
+
+                <span data-bind="if:page() == 'which'"></span>
+
+            </div><!-- end modal-footer -->
+        </div><!-- end modal-content -->
+    </div><!-- end modal-dialog -->
+</div><!-- end modal -->
+
+<script>
+
+
+
+    var nodeId = 'fnmby';
+    var nodeApiUrl = '/api/v1/project/fnmby/';
+
+    $(document).ready(function(){
+		var Comments = new CommentUI(); 
+
+        $logScope = $("#logScope");
+        if ($logScope.length > 0) {
+            progressBar = $("#logProgressBar")
+            progressBar.show();
+        }
+        // Get project data from the server and initiate the ProjectViewModel
+        $.ajax({
+            url: nodeApiUrl,
+            type: "get", contentType: "application/json",
+            dataType: "json",
+            cache: false,
+            success: function(data){
+                // Initialize ProjectViewModel with returned data
+                ko.applyBindings(new ProjectViewModel(data), $("#projectScope")[0]);
+
+                // Initiate AddContributorViewModel
+                var $addContributors = $('#addContributors');
+                var addContribVM = new AddContributorViewModel(data['node']['title'],
+                                                        data['parent']['id'],
+                                                        data['parent']['title']);
+                ko.applyBindings(addContribVM, $addContributors[0]);
+                // Clear user search modal when dismissed; catches dismiss by escape key
+                // or cancel button.
+                $addContributors.on('hidden', function() {
+                    addContribVM.clear();
+                });
+
+                // Initialize LogsViewModel when appropriate
+                if ($logScope.length > 0) {
+                    progressBar.hide();
+                    var logs = data['node']['logs'];
+                    // Create an array of Log model objects from the returned log data
+                    var logModelObjects = createLogs(logs);
+                    ko.applyBindings(new LogsViewModel(logModelObjects), $logScope[0]);
+                };
+            }
+        });
+    });
+
+</script>
+<div class="row">
+    <div class="col-md-9 wiki">
+        <h2>Aenean gravida scelerisque sodales</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac scelerisque mauris, vel hendrerit ipsum. Ut accumsan odio non molestie accumsan. Donec consequat sem nec lorem blandit, gravida ornare elit malesuada. Vivamus et ipsum vitae diam iaculis accumsan ut non leo. Nunc in augue magna. Nam mollis posuere velit id condimentum. Nullam nunc odio, accumsan sed posuere in, rutrum eget risus. Pellentesque in arcu libero. Nulla iaculis diam sit amet ultricies porttitor. Donec accumsan scelerisque enim, ac laoreet sem pulvinar sit amet. Cras rhoncus sem et odio laoreet tincidunt. In hac habitasse platea dictumst.</p>
+<p>Vivamus nec placerat diam. Pellentesque a velit non quam ultricies aliquet id sit amet orci. Suspendisse tempus gravida arcu, sit amet varius nibh. Suspendisse lobortis, turpis ac ultrices posuere, nulla libero ornare nisl, at facilisis tellus sem nec enim. Praesent tristique vestibulum mi. Aenean gravida scelerisque sodales. Praesent vel erat quam. Pellentesque a feugiat odio. Praesent lacinia mattis massa, quis vulputate ante varius vel. Nunc scelerisque velit in orci euismod, ac vehicula orci hendrerit.</p>
+<p>Cras ullamcorper bibendum mattis. Praesent tincidunt ipsum at accumsan vulputate. Cras non diam ac massa pharetra mollis sed in ligula. Cras ligula felis, malesuada a augue non, fringilla gravida justo. In non risus egestas augue egestas consectetur a at sapien. Nulla consectetur elit id tellus porta, a dictum eros porta. Morbi accumsan, dolor ac interdum pharetra, risus urna ultricies risus, a consectetur neque urna non nisi. Cras non tristique urna. Sed blandit purus ut lorem pellentesque lacinia.</p>
+<h2>Pellentesque rutrum ut erat eget</h2>
+<p>Ut dignissim egestas neque et posuere. Duis diam justo, condimentum quis purus eget, iaculis vehicula dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam eu ultricies nulla, sit amet vehicula leo. Duis ac urna non lectus elementum scelerisque. Vivamus sodales sem non mollis tempor. Donec ac orci nibh. Nunc vitae ipsum et ligula aliquet pellentesque ut molestie arcu. Vivamus vulputate dolor faucibus ultricies gravida. Curabitur bibendum vulputate sodales. Nulla facilisi. Morbi non ullamcorper neque.</p>
+<p>Suspendisse fringilla sollicitudin lacinia. Phasellus accumsan augue neque, quis convallis nibh eleifend tristique. Suspendisse ac nunc interdum, pretium tortor ac, accumsan est. Fusce tortor sapien, congue vitae suscipit eget, viverra vitae quam. Integer imperdiet enim et ullamcorper eleifend. Pellentesque in nulla sed mi vehicula dapibus commodo ut eros. Phasellus magna ante, gravida eget suscipit eget, ultricies ac dolor. Pellentesque rutrum ut erat eget eleifend. Phasellus vehicula quam turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu augue a orci gravida feugiat. Proin non gravida nulla, in fermentum risus. Praesent vel odio eget mauris semper vulputate at a arcu.</p>
+<p>Nam eu purus rutrum, adipiscing neque at, ultricies sapien. Nunc mollis, tortor in congue scelerisque, nunc mi feugiat dui, non posuere velit leo sit amet libero. Suspendisse consequat mauris eget urna porttitor, eget pulvinar arcu mollis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi vel porttitor dui, vitae placerat lorem. Quisque adipiscing orci ac nisi porta sollicitudin. Aenean quis tempus justo. Mauris eleifend suscipit justo, at lacinia enim lobortis sed. In tortor quam, venenatis vitae nulla aliquet, tristique volutpat metus.</p>
+<h2>Quisque sodales ullamcorper es</h2>
+<p>Vestibulum condimentum feugiat sagittis. Nam molestie congue felis a porta. Curabitur ultrices magna at libero commodo accumsan. Curabitur interdum metus orci, quis pulvinar lorem convallis non. Donec in metus quam. Quisque sed mauris lacinia, sagittis erat sit amet, elementum justo. Quisque sodales ullamcorper est ac ullamcorper. Morbi blandit metus sit amet nisi pulvinar, a convallis nisl fermentum. Cras vel consequat lorem. Aenean et euismod eros. Mauris porta mi pharetra arcu posuere viverra. Nunc viverra tellus sed enim rutrum vehicula sagittis quis libero. Donec accumsan, leo sit amet placerat sagittis, velit turpis dictum justo, nec ullamcorper purus neque vitae est. Sed neque ante, cursus sagittis eros quis, fringilla adipiscing tortor. Donec est neque, pellentesque nec quam et, malesuada eleifend quam. Suspendisse dui magna, tincidunt nec posuere id, viverra sit amet elit.</p>
+<p>Mauris hendrerit nibh et ornare fringilla. Phasellus sodales placerat interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque ac ultrices enim, sit amet ultrices enim. Donec sapien nunc, malesuada a magna eu, porttitor sodales magna. Quisque eros nisl, iaculis et risus in, mattis egestas dui. Sed at sodales sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nibh nisl, aliquet sodales aliquam pellentesque, egestas in nulla.</p>
+<p>Curabitur eros leo, pretium ut hendrerit non, rutrum eget lorem. Praesent id sapien nec turpis venenatis venenatis et eget mauris. Proin nec nibh dignissim elit cursus sodales. Integer vitae commodo est. Nunc laoreet convallis nunc in porttitor. Integer adipiscing, felis ac faucibus venenatis, justo leo elementum eros, egestas viverra orci lacus quis leo. Sed vel sagittis sem. Phasellus tincidunt risus vel orci commodo, et mollis lacus pellentesque. Curabitur tempus sit amet justo non posuere. Suspendisse massa libero, lobortis ac ante nec, viverra dignissim quam. Cras est lectus, ornare nec lacus a, bibendum lacinia nulla. Nam eu sapien quis arcu hendrerit vehicula.</p>
+<p>Phasellus tristique placerat purus. Nulla ut placerat nisi. Vestibulum ac pretium dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus ut erat vel diam euismod luctus ut eu erat. Quisque vel dui placerat, luctus nisi ac, tempor sem. Nunc vel nunc nunc. Nam nisi magna, vehicula sed lectus eu, aliquet rutrum orci. Morbi in diam sed lorem tincidunt tempus. Phasellus quis bibendum ipsum, id porta tellus. Donec tincidunt congue mauris, at aliquam elit pellentesque sed. Nunc sit amet erat magna. Mauris dignissim tempor orci in porttitor.</p>
+<h2>Mauris pretium elit ligula</h2>
+<p>Praesent luctus nec nulla sit amet volutpat. Mauris pretium elit ligula, eu vehicula tellus varius ac. Morbi hendrerit, nibh at interdum lobortis, ante mi sollicitudin tellus, ac lacinia risus risus sit amet lacus. Quisque eros lacus, sagittis ut euismod ut, ornare tristique orci. Sed sapien felis, viverra sed condimentum nec, commodo a mi. Sed feugiat eros nunc, nec imperdiet tortor ornare eget. Aliquam pellentesque urna eros, vitae lacinia nibh varius vitae. In pulvinar facilisis nulla, a posuere elit malesuada id. Etiam et est leo. Donec vitae magna quam. Nulla laoreet velit arcu, a aliquam mi dignissim at. In vitae ipsum est. In ligula orci, faucibus a diam sed, consequat molestie massa. Nulla vel mi ac enim sodales tempus.</p>
+<p>Duis fermentum vitae lectus id auctor. Maecenas condimentum porttitor neque, et consequat magna porttitor et. Aliquam consequat auctor eros a pellentesque. Curabitur dolor purus, tempus sodales risus ut, elementum varius urna. In id augue et nisl suscipit cursus at vel ligula. Vivamus non sagittis mi, sit amet lacinia augue. Aliquam accumsan nec sem aliquam gravida. Curabitur lobortis ornare vehicula. Sed non dictum arcu. Donec in nibh posuere, lacinia augue ut, egestas felis. Suspendisse potenti. Mauris nec purus tristique, egestas est at, dignissim enim. Curabitur risus justo, egestas quis orci sit amet, placerat dictum velit. Sed et porttitor arcu. Vivamus nunc nulla, faucibus vitae lorem eu, ullamcorper malesuada quam. Donec lacinia tortor in accumsan bibendum.</p>
+<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean ligula lectus, vestibulum eu nisl ac, condimentum hendrerit erat. Vivamus ultrices ante eu nulla iaculis, aliquam porttitor magna semper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque venenatis sed massa vel semper. Sed eu nulla euismod, pharetra magna eu, auctor lacus. Nulla varius faucibus suscipit. Nulla non dictum odio. Sed quis hendrerit quam, at bibendum diam.</p>
+<p>Nunc ultricies tincidunt augue, at cursus tortor tincidunt eu. Proin dignissim velit adipiscing hendrerit placerat. Proin vitae felis non sem sollicitudin lacinia. Vivamus ultricies massa molestie, placerat nisl sit amet, fringilla libero. Vivamus rutrum diam at justo consectetur aliquet. Aliquam sed diam eget lacus viverra auctor. Nam auctor purus non felis ornare, ut commodo mauris blandit. Morbi vel dictum dolor. Suspendisse scelerisque risus massa, et accumsan velit hendrerit vitae. Nam ac nunc porttitor, venenatis mi ut, bibendum nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec id imperdiet libero. In porttitor tellus eget augue tempus dictum. Cras imperdiet iaculis nisi id adipiscing. Donec adipiscing velit non libero ullamcorper, ac convallis nulla rhoncus.</p>
+<h2>Donec id tristique augue</h2>
+<p>Sed cursus posuere nunc, ut convallis tellus iaculis euismod. Donec sodales in nibh sit amet scelerisque. Sed rutrum eget lacus sed laoreet. Nam mollis mattis sollicitudin. Curabitur eget vulputate nulla, sodales porttitor eros. Integer ut erat et tellus placerat bibendum. Etiam faucibus libero eu commodo dignissim. Etiam fringilla vestibulum quam, at lobortis libero interdum a. Aenean urna libero, condimentum et faucibus sit amet, blandit sit amet justo. Donec id tristique augue. Vivamus et adipiscing felis, at commodo odio.</p>
+    </div>
+
+    <div class="col-md-3">
+        <dl>
+	<strong>Name:</strong> main wiki page
+    <br>
+	<strong>Version:</strong> 3 (current)
+</dl><nav class="subnav navbar navbar-default">
+    <ul class="nav navbar-nav">
+
+                <li><a href="/fnmby/wiki/main wiki page/edit">Edit</a></li>
+            <li><a href="/fnmby/wiki/main wiki page/compare/1">History</a> </li>
+                <li><a href="#" data-toggle="modal" data-target="#newWiki">New Page</a></li>
+                  <!-- New Component Modal -->
+  <div class="modal fade" id="newWiki">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <form class="form">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3 class="modal-title">Add New Wiki Page</h3>
+            </div><!-- end modal-header -->
+            <div class="modal-body">
+                     <div id="alert" style="padding-bottom:10px;color:blue;"></div>
+                    <div class="form-group">
+                        <input id="data" placeholder="New Wiki Name" type="text" class="form-control">
+                    </div>
+
+            </div><!-- end modal-body -->
+            <div class="modal-footer">
+               <a id="close" href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+              <button id="add-wiki-submit" type="submit" class="btn btn-primary">OK</button>
+            </div><!-- end modal-footer -->
+        </form>
+        </div><!-- end modal- content -->
+      </div><!-- end modal-dialog -->
+    </div><!-- end modal -->
+
+
+<!-- Comment bar --> 
+<div class="cm-window">
+        <div class="cm-pullTab"><span class="icon-comments-alt"></span></div>
+        <div class="cm-band"> </div>
+        <div class="cm-sidebar">
+        	<div class="cm-point" style="margin-top: 25px"> </div>
+        	<div class="cm-point" style="margin-top: 340px"> </div>
+        	<div class="cm-point" style="margin-top: 400px"> </div>
+        
+        </div>
+        <div class="cm-content">
+        	<p style="text-align:center"> Commenting mode is ON </p>
+        	<div class="cm-comment">        	
+        		<div> 
+        			<textarea class="cm-box" placeholder="Add your comment"> </textarea>
+        			<button class="cm-addComment btn btn-primary btn-block">Add Comment</button>
+        			<hr class="soften" /> 
+        		</div>
+        	</div>
+        	<div class="cm-load"> 
+                	<h3 class="cm-title" style="text-align: center"> Discussions  </h3>
+                	<p> <input type="text" class="cm-filter" placeholder="Filter comments">  </p>
+					<div class="cm-wrapper" postid="0">
+						
+					</div>			                
+        	</div>
+        	
+		</div>
+</div>
+		
+
+  <script type="text/javascript">
+
+  $(function(){
+
+      $('#newWiki form').on('submit', function(e) {
+
+          e.preventDefault();
+          $("#add-wiki-submit")
+                  .attr("disabled", "disabled")
+                  .text("Creating New Wiki page");
+
+          if ($.trim($("#data").val())==''){
+
+              $("#alert").text("The new wiki page name cannot be empty");
+
+              $("#add-wiki-submit")
+                      .removeAttr("disabled", "disabled")
+                      .text("OK");
+          }
+          else if ($(e.target).find("#data").val().length>100){
+              $("#alert").text("The new wiki page name cannot be more than 100 characters.");
+
+              $("#add-wiki-submit")
+                      .removeAttr("disabled", "disabled")
+                      .text("OK");
+          }
+          else{
+              var url=document.location.href;
+              var url_root = url.substr(0, url.indexOf('wiki')+5);
+              document.location= url_root + $("#data").val()+ '/edit/';
+          }
+     });
+
+      $('#close').on('click', function(){
+          $("#alert").text("");
+          $('#data').val("");
+      });
+  });
+  </script>
+    </ul>
+</nav>
+<div class="osf-sidenav hidden-print" role="complementary">
+
+    <ul class="nav bs-sidenav">
+
+        <h4 style="margin-left: 10px;">Project Wiki Pages</h4>
+
+            <li>
+                <a href="/fnmby/wiki/main wiki page">main wiki page</a>
+            </li>
+
+            <hr>
+            <h4 style="margin-left: 10px;">Component Wiki Pages</h4>
+
+                <li class="nav-header">
+                    <a href="/fnmby/node/rvqz4/wiki/home">New Component (project)</a>
+                    <ul style="list-style-type: none;">
+                    </ul>
+                </li>
+
+
+    </ul>
+
+</div>
+</div>
+</div>
+
+
+        </div><!-- end container -->
+    </div><!-- end watermarked -->
+
+    <footer class="footer">
+    <div class="container">
+        <div class="row">
+             <div class="col-md-2 col-md-offset-1">
+                <h4>OSF</h4>
+                <ul>
+                    <li><a href="/4znZP/wiki/home">About</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/explore">Explore</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h4>Center for Open Science</h4>
+                <ul>
+                    <li><a href="http://centerforopenscience.org">Home</a></li>
+                    <li><a href="http://centerforopenscience.org/#contact">Contact</a></li>
+                    <li><a href="/ezcuj/wiki/home/">Reproducibility Project: Psychology</a></li>
+                    <li><a href="/e81xl/wiki/home/">Reproducibility Project: Cancer Biology</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h4>Documentation</h4>
+                <ul>
+                    <li><a href="/getting-started">Getting Started</a></li>
+                    <li><a href="/qb0du/">Developer API</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h4>Socialize</h4>
+                <div class="social">
+                    <a href="http://twitter.com/OSFramework"><i class="icon-twitter icon-2x"></i></a>
+                    <a href="https://www.facebook.com/OpenScienceFramework"><i class="icon-facebook icon-2x"></i></a>
+                    <a href="https://groups.google.com/forum/#!forum/openscienceframework"><i class="icon-google-plus icon-2x"></i></a>
+                    <a href="https://www.github.com/centerforopenscience"><i class="icon-github icon-2x"></i></a>
+                    <a href="https://plus.google.com/103557785986281627994" rel="publisher"><i class="icon-google-plus-sign icon-2x"></i></a>
+                </div>
+            </div> <!-- column -->
+        </div>
+    </div>
+</footer><!-- end footer -->
+<div class="container copyright">
+    <div class="row">
+        <div class="col-md-12">
+        <p>Copyright © 2011-2013 <a href="http://centerforopenscience.org">CenterforOpenScience.org</a> - Terms of Service | Privacy | Security</p>
+        </div>
+    </div>
+</div><!-- end container copyright -->
+
+</body>
+</html>

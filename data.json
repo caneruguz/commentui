@@ -1,0 +1,27 @@
+{ "comments" : [
+		{
+		  "id" : 1,
+		  "userid" : 23,
+		  "username" : "Jeff",
+		  "content" : "This is a comment",
+		  "replySource" : 0,
+		  "textSource" : 12
+		},
+		{
+		  "id" : 2,
+		  "userid" : 25,
+		  "username" : "Josh",
+		  "content" : "Another comment to text",
+		  "replySource" : 0,
+		  "textSource" : 160
+		},
+		{
+		  "id" : 3,
+		  "userid" : 26,
+		  "username" : "Caner",
+		  "content" : "Reply to a comment, not text.",
+		  "replySource" : 1,
+		  "textSource" : 0
+		}
+	]
+}
